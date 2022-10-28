@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PAYMENT</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</head>
+
+<body style="background-color: #fad4bb;">
+    <div>
+        <div style="background-color:#b36eaa;color:rgb(240, 240, 243);">
+            <div class="container-fluid d-block">
+                <div class="row">
+                    <div class="col-xs-4 col-sm-4 col-md-5 col-lg-4">
+                        <div class="info-text-rec">
+                            <span style="padding-left: 20px"><h5>Food Delivery</h5></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div style=" background-color:#81f1d9;
+        color:rgb(15, 15, 160);">
+            <div class='container-fluid d-block'>
+                <div class='row'>
+                    <div class="col-xs-4 col-sm-4 col-md-5 col-lg-4">
+                        <div style="padding-top: 10px;
+                        padding-right: 20px;
+                        padding-bottom: 10px;
+                        padding-left: 20px;">
+                            <span style="font-family:verdana;font-size:140%;">REVIEW YOUR ORDER AND PAY</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="">
+        <div style="padding-top: 50px;
+padding-right: 30px;
+padding-bottom: 50px;
+padding-left: 30px;">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 style="text-align:center;
+        background-color:#ff7070;
+        color:rgb(15, 15, 160);
+        margin-bottom: 0px !important;">CART</h2>
+                </div>
+            </div>
+            <div style="padding-right: 30px;
+        padding-bottom: 50px;
+        padding-left: 30px;  
+        background-color: #e8caee;">
+                <div style="color: rgb(150, 9, 245)" ;>
+                    <h2>YOUR ITEMS</h2>
+                    
+                    <div class="alert alert-success" role="alert">
+  <div class="alert-heading"><b>Welcome {{loggedinUser}}, here is your order!!</></b><div class="row">
+  {% for i in bildet %}
+  <div class="col-md-3"><b>{{i.item_name}} -- {{i.total}}</b></div>
+  
+  {% endfor %}</div><hr>
+  <p class="mb-0"><b>{{totbill}}</b></p>
+</div>
+
+                    <form action="/paybill/" method="POST">
+          {% csrf_token %}
+                        <input type="hidden" name=totbill value={{totbill}}>
+                        <input type="hidden" name="uname" value={{loggedinUser}}>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="email">ENTER YOUR ADDRESS</label>
+                                <input class="form-control" placeholder="PLEASE ENTER YOUR ADDRESS">
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label for="pwd">CARD INFORMATION</label>
+                                <input type="password" class="form-control" placeholder="Enter CARD INFORMATION"
+                                    id="pwd">
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label for="pwd">Additional Instructions</label>
+                                <input type="text" class="form-control"
+                                    placeholder="Please give us Special Instructions" id="pwd">
+                            </div>
+                        </div>
+                        <div class="form-group form-check">
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox"> Cash on Delivery
+                            </label>
+                        </div>                    
+                    <h4>COMPLETE ORDER</h4>
+                    <button type="submit" class="btn btn-primary" name="makePayment">SUBMIT PAYMENT</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+</div>
+</body>
+</html>

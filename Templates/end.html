@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Thank you</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</head>
+
+<body style="background-color: #fad4bb;">
+    <div>
+        <div style="background-color:#b36eaa;color:rgb(240, 240, 243);">
+            <div class="container-fluid d-block">
+                <div class="row">
+                    <div class="col-xs-4 col-sm-4 col-md-5 col-lg-4">
+                        <div class="info-text-rec">
+                            <span style="padding-left: 20px"><h5>Food Delivery</h5></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div style=" background-color:#81f1d9;
+        color:rgb(15, 15, 160);">
+            <div class='container-fluid d-block'>
+                <div class='row'>
+                    <div class="col-xs-4 col-sm-4 col-md-5 col-lg-4">
+                        <div style="padding-top: 10px;
+                        padding-right: 20px;
+                        padding-bottom: 10px;
+                        padding-left: 20px;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="">
+        <div style="padding-top: 50px;
+padding-right: 30px;
+padding-bottom: 50px;
+padding-left: 30px;">
+            <div class="row">
+                <div class="col-lg-12">
+                    <img src="{%static 'images/thank.png'%}" class="rounded mx-auto d-block" width="1000" height="500">
+                </div>
+            </div>
+<div class="row">
+    <div class="col-md-2 col-md-offset-10">
+        <form action="/home/" method="POST">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-primary" name="home">HOME</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,210 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MENU</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script> 
+    <style type="text/css">
+        .form-control[readonly],
+        .form-control:focus,
+        .form-control:disabled
+            {​​
+            border-color: #cccccc;
+            -webkit-box-shadow: none;
+            box-shadow: none;
+            background-color: white;
+            }​​
+    </style>
+</head>
+
+<body style="background-color: #fad4bb;">
+    <div>
+        <div style="background-color:#b36eaa;color:rgb(240, 240, 243);" >
+            <div class="container-fluid d-block">
+                <div class="row">
+                    <div class="col-xs-4 col-sm-4 col-md-5 col-lg-4">
+                        <div class="info-text-rec">
+                            <span style="padding-left: 20px;"><h5>Food Delivery</h5></span>
+                        </div>
+                    </div>
+                    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-4"></div>
+                    <div class="col-xs-5 col-sm-3 col-md-5 col-lg-4">
+                        <div  style="align-items:right;padding-left: 140px;">
+                            <script style="padding-left: 70px">
+                                var today = new Date();
+                                document.write(today);
+                            </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div style=" background-color:#81f1d9;
+        color:rgb(15, 15, 160);">
+            <div class='container-fluid d-block'>
+                <div class='row'>
+                    <div class="col-xs-4 col-sm-4 col-md-5 col-lg-4">
+                        <div style="padding-top: 10px;
+                        padding-right: 20px;
+                        padding-bottom: 10px;
+                        padding-left: 20px;">
+                            <span style="font-family:verdana;font-size:160%;">ITEM MENU</span>
+                                <form action="/showGraph/" method="POST"> 
+                                    {% csrf_token %} 
+                                    <button type="submit" class="form-control btn-outline-primary">Total Quantity Ordered</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="">
+<div style="padding-top: 50px;
+padding-right: 30px;
+padding-bottom: 50px;
+padding-left: 30px;">
+    <div class="row">
+    <div class="col-lg-12">
+        <h2 style="text-align:center;
+        background-color:#ff7070;
+        color:rgb(15, 15, 160);
+        margin-bottom: 0px !important;">MENU</h2>
+    </div>
+</div>
+        <div style="padding-right: 30px;
+        padding-bottom: 50px;
+        padding-left: 30px;  
+        background-color: #ffffff;">
+            <div style="color: rgb(150, 9, 245)";>
+                <div style= "font-family:Cooper Black; font-size:100%;" >
+                    <div class="row">
+                        <div class="col-lg-3 text-center">
+                            <form action="/Cart/" method="POST">
+                                {% csrf_token %}
+                            <input type="hidden" value={{loggedinUser}} name="uname">
+                            <img src="{%static 'images/pizza.jpg'%}" class="rounded mx-auto d-block" width="300" height="300">
+                            <input type="text" class="text-center.centform-control border-0" size=15 value="          PIZZA" readonly name="itemName" readonly>
+                            <input type="text" class="text-center form-control border-0" size=5 value="PRICE:350" readonly name ="itemPrice" readonly>
+                            <input type="text" class="qty" size=4 name='qty'>
+                            <button type="submit" class="btn btn-primary">Add to Cart</button>
+                            </form>
+                        </div>
+                        <div style="color:#00FF7F" role="alert">
+                            {{ItemAddedMsg}}
+                        </div>
+                        <div style="color:#FF6347" role="alert">
+                            {{ItemNotAddedMsg}}
+                        </div>
+
+                        <div class="col-lg-3 text-center">
+                            <form action="/Cart/" method="POST">
+                                {% csrf_token %}
+                            <input type="hidden" value={{loggedinUser}} name="uname">
+                            <img src="{%static 'images/cake.jpg'%}" class="rounded mx-auto d-block" width="300" height="300">
+                            <input type="text" class="text-center.centform-control border-0" size=15 value="CHOCOLATE CAKE" readonly name="itemName" readonly>
+                            <input type="text" class="text-center form-control border-0" size=5 value="PRICE:500" readonly name ="itemPrice" readonly>
+                            <input type="text" class="qty" size=4 name='qty'>
+                            <button type="submit" class="btn btn-primary">Add to Cart</button>
+                            </form>
+                        </div>
+
+                        <div class="col-lg-3 text-center">
+                            <form action="/Cart/" method="POST">
+                                {% csrf_token %}
+                            <input type="hidden" value={{loggedinUser}} name="uname">
+                            <img src="{%static 'images/pasta.jpg'%}" class="rounded mx-auto d-block" width="300" height="300">
+                            <input type="text" class="text-center.centform-control border-0" size=15 value="           PASTA" readonly name="itemName" readonly>
+                            <input type="text" class="text-center form-control border-0" size=5 value="PRICE:150" readonly name ="itemPrice" readonly>
+                            <input type="text" class="qty" size=4 name='qty'>
+                            <button type="submit" class="btn btn-primary">Add to Cart</button>
+                            </form>
+                        </div>
+
+                        <div class="col-lg-3 text-center">
+                            <form action="/Cart/" method="POST">
+                                {% csrf_token %}
+                            <input type="hidden" value={{loggedinUser}} name="uname">
+                            <img src="{%static 'images/gulab.jpg'%}" class="rounded mx-auto d-block" width="300" height="300">
+                            <input type="text" class="text-center.centform-control border-0" size=15 value="    GULAB JAMUN" readonly name="itemName" readonly>
+                            <input type="text" class="text-center form-control border-0" size=5 value="PRICE:75" readonly name ="itemPrice" readonly>
+                            <input type="text" class="qty" size=4 name='qty'>
+                            <button type="submit" class="btn btn-primary">Add to Cart</button>
+                            </form>
+                        </div>
+                    </div>
+                    <br>
+
+                    <div class="row">
+                        <div class="col-lg-3 text-center">
+                            <form action="/Cart/" method="POST">
+                                {% csrf_token %}
+                            <input type="hidden" value={{loggedinUser}} name="uname">
+                            <img src="{%static 'images/panipuri.jpg'%}" class="rounded mx-auto d-block" width="300" height="300">
+                            <input type="text" class="text-center.centform-control border-0" size=15 value="    PANI PURI" readonly name="itemName" readonly>
+                            <input type="text" class="text-center form-control border-0" size=5 value="PRICE:30" readonly name ="itemPrice" readonly>
+                            <input type="text" class="qty" size=4 name='qty'>
+                            <button type="submit" class="btn btn-primary">Add to Cart</button>
+                            </form>
+                        </div>
+                        
+                        <div class="col-lg-3 text-center">
+                            <form action="/Cart/" method="POST">
+                                {% csrf_token %}
+                            <input type="hidden" value={{loggedinUser}} name="uname">
+                            <img src="{%static 'images/biryani.jpg'%}" class="rounded mx-auto d-block" width="300" height="300">
+                            <input type="text" class="text-center.centform-control border-0" size=15 value="        BIRYANI" readonly name="itemName" readonly>
+                            <input type="text" class="text-center form-control border-0" size=5 value="PRICE:250" readonly name ="itemPrice" readonly>
+                            <input type="text" class="qty" size=4 name='qty'>
+                            <button type="submit" class="btn btn-primary">Add to Cart</button>
+                            </form>
+                        </div>
+
+                        <div class="col-lg-3 text-center">
+                            <form action="/Cart/" method="POST">
+                                {% csrf_token %}
+                            <input type="hidden" value={{loggedinUser}} name="uname">
+                            <img src="{%static 'images/sandwich.jpg'%}" class="rounded mx-auto d-block" width="300" height="300">
+                            <input type="text" class="text-center.centform-control border-0" size=15 value="       SANDWICH" readonly name="itemName" readonly>
+                            <input type="text" class="text-center form-control border-0" size=5 value="PRICE:100" readonly name ="itemPrice" readonly>
+                            <input type="text" class="qty" size=4 name='qty'>
+                            <button type="submit" class="btn btn-primary">Add to Cart</button>
+                            </form>
+                        </div>
+
+                        <div class="col-lg-3 text-center">
+                            <form action="/Cart/" method="POST">
+                                {% csrf_token %}
+                            <input type="hidden" value={{loggedinUser}} name="uname">
+                            <img src="{%static 'images/icecream.jpg'%}" class="rounded mx-auto d-block" width="300" height="300">
+                            <input type="text" class="text-center.centform-control border-0" size=15 value="          ICECREAM" readonly name="itemName" readonly>
+                            <input type="text" class="text-center form-control border-0" size=5 value="PRICE:80" readonly name ="itemPrice" readonly>
+                            <input type="text" class="qty" size=4 name='qty'>
+                            <button type="submit" class="btn btn-primary">Add to Cart</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <BR>
+        </div>
+<div class="row">
+    <div class="col-md-2 col-md-offset-10">
+        <form action="/bill/" method="POST">
+            <input type= 'hidden' value={{loggedinUser}} name="uname">
+            {% csrf_token %}
+            <button type="submit" class="form-control btn-outline-primary">Go To Cart</button>
+        </form>
+    </div>
+</div>  
+</div>
+</body>
+</html>
